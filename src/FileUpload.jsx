@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function FileUpload() {
+function FileUpload({ accessToken }) {
   const [file, setFile] = useState(null);
 
   const handleChange = (e) => {
