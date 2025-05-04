@@ -7,8 +7,22 @@
 
 .app-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-family: sans-serif;
+}
+
+.horizontal-container {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  font-family: sans-serif;
+  gap: 1rem;
+}
+
+.top-right {
+  position: absolute; /* Position the element relative to its nearest positioned ancestor */
+  top: 0;             /* Align to the top */
+  right: 0;           /* Align to the right */
 }
