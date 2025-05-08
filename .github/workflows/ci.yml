@@ -7,9 +7,9 @@ on:
     branches: [ master ]
 
 jobs:
-  build-react:
+  build-react-deploy-s3:
     runs-on: ubuntu-latest
-    name: Build & Test React App
+    name: Build & Test React App and Deploy to S3
     defaults:
       run:
         working-directory: src 
@@ -32,3 +32,16 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1  # change if needed
+
+      - name: Deploy to S3
+        run: |
+          aws s3 sync dist/ s3://fileuploadapp-waimanlam --delete
+
+  
