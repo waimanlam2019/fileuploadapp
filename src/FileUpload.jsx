@@ -38,6 +38,7 @@ function FileUpload({ accessToken }) {
     formData.append("file", file);
 
     try {
+      console.log(accessToken);
       const response = await fetch("http://localhost:8080/upload", {
         method: "POST",
         body: formData,
