@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import banner from './assets/images/banner.png';
 
 function FileUpload({ accessToken }) {
   const [file, setFile] = useState(null);
@@ -55,13 +56,18 @@ function FileUpload({ accessToken }) {
 
   return (
     <div className="app-container">
-      <input type="file"
-        accept=".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf"
-        onChange={handleChange}
+      <img src={banner} alt="Banner" 
+      style={{ width: "50%", height: "auto", marginBottom: "1rem" }}
       />
-      <button onClick={handleUpload} style={{ marginLeft: "1rem" }}>
-        Upload
-      </button>
+      <div className='horizontal-container'>
+        <input type="file"
+          accept=".doc,.docx,.pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf"
+          onChange={handleChange}
+        />
+        <button onClick={handleUpload} style={{ marginLeft: "1rem" }}>
+          Upload
+        </button>
+      </div>
     </div>
   );
 }
